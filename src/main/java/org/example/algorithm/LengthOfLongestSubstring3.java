@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
+无重复字符的最长子串
+
 问题抽象：给定一个任意长度的字符串 s，要求找到其中不含重复字符的连续子串，并返回该子串的最大长度。
 
 核心需求如下：
@@ -16,23 +18,34 @@ import java.util.Map;
 输入：字符串 s (可能为空)
 输出：最长无重复字符子串的长度（整数）
 
-示例：
-输入： s = "pwwkew"
-输出： 3（最长子串是wke）
+示例 1:
+输入: s = "abcabcbb"
+输出: 3
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
 
+示例 2:
+输入: s = "bbbbb"
+输出: 1
+解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+示例 3:
+
+输入: s = "pwwkew"
+输出: 3
+解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+
+算法3：
+
+解题思路：滑动窗口 + 哈希表
+使用滑动窗口维护当前无重复字符的子串，通过哈希表记录字符最近出现的位置。
 时间复杂度：O（n）
 空间复杂度：O（min（m，n)）
-
  */
-public class LongestSubstringWithoutRepeatingCharacters3 {
+public class LengthOfLongestSubstring3 {
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("pwwkew"));
     }
 
-    /*
-    解题思路：滑动窗口 + 哈希表
-    使用滑动窗口维护当前无重复字符的子串，通过哈希表记录字符最近出现的位置。
-     */
     private static int lengthOfLongestSubstring(String str) {
         if (str == null || str.isEmpty()) {
             return 0;
